@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import axios from 'axios';
 
 // Set default base URL for Axios
-axios.defaults.baseURL = 'http://localhost:5000'; // Your backend server URL
+axios.defaults.baseURL = 'https://pict-placement-portal.onrender.com'; // Your backend server URL
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
