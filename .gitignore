@@ -1,0 +1,13 @@
+# Dependency directories
+/node_modules
+/client/node_modules
+/server/node_modules
+
+# Build and Log files
+/client/build
+/server/build
+npm-debug.log
+.DS_Store
+
+# Environment Variables (CRITICAL for security)
+.env
