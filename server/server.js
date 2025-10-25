@@ -2,13 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const studentRoutes = require('./Routes/studentRoutes');
+// NOTE: Assuming your folder name on GitHub is correctly capitalized as 'Routes'
+const studentRoutes = require('./Routes/studentRoutes'); 
 const adminRoutes = require('./Routes/adminRoutes');
 const companyRoutes = require('./Routes/companyRoutes');
-const Notification = require('./models/Notification'); // For admin to student notifications
-const Admin = require('./models/Admin'); // For initial admin creation
+const Notification = require('./models/Notification'); 
+const Admin = require('./models/Admin'); 
 
 const app = express();
+// VVV CRITICAL FIX: Tell Express to trust the proxy (Render) VVV
+app.set('trust proxy', 1); 
+// ^^^ CRITICAL FIX ^^^
+
 const PORT = process.env.PORT || 5000;
 
 // Middleware
@@ -31,7 +36,7 @@ async function createDefaultAdmin() {
     if (!adminExists) {
       const newAdmin = new Admin({
         email: process.env.ADMIN_EMAIL,
-        password: process.env.ADMIN_PASSWORD, // Password will be hashed by the pre-save hook
+        password: process.env.ADMIN_PASSWORD,
       });
       await newAdmin.save();
       console.log('Default admin created:', newAdmin.email);
