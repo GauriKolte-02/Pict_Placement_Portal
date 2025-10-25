@@ -2,9 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const studentRoutes = require('./routes/studentRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const companyRoutes = require('./routes/companyRoutes');
+const studentRoutes = require('./Routes/studentRoutes');
+const adminRoutes = require('./Routes/adminRoutes');
+const companyRoutes = require('./Routes/companyRoutes');
 const Notification = require('./models/Notification'); // For admin to student notifications
 const Admin = require('./models/Admin'); // For initial admin creation
 
